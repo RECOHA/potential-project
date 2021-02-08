@@ -14,7 +14,7 @@
                 </b-col>
                 <b-col>
                   <b-nav card-header pills align="end">
-                    <b-nav-item to="/developers/new" active>Novo Desenvolvedor</b-nav-item>
+                    <b-nav-item to="/developers/new" active><b-icon icon="person-plus"></b-icon> Desenvolvedor</b-nav-item>
                   </b-nav>
                 </b-col>
               </b-row>
@@ -24,7 +24,7 @@
                 <b-table striped hover borderless responsive primary-key="id" :filter="filter" :items="items" :fields="fields">
                   <template #cell(acoes)="row">
                     <b-button-group size="sm">
-                      <b-button variant="info" @click="visualizar(row.item.id)">Visualizar</b-button>
+                      <b-button variant="info" @click="showDeveloper(row.item.id)">Visualizar</b-button>
                       <b-button variant="secondary">Editar</b-button>
                       <b-button variant="danger" @click="deleteDeveloper(row.item.id, row.index)">Excluir</b-button>
                     </b-button-group>
@@ -73,7 +73,7 @@ export default {
     }
   },
   methods: {
-    visualizar (id) {
+    showDeveloper (id) {
       axios.get('/developers/' + id)
       .then(response => {
         this.$refs['modal-details'].show()
