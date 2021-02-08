@@ -18,5 +18,5 @@ use App\Http\Controllers\DevelopersController;
 Route::get('/developers', [DevelopersController::class, 'index']);
 Route::post('/developers/store', [DevelopersController::class, 'store']);
 Route::get('/developers/{id}', [DevelopersController::class, 'show']);
-Route::put('/developers', [DevelopersController::class, 'update']);
+Route::put('/developers/{id}', [DevelopersController::class, 'update']);
 Route::delete('/developers/{id}', [DevelopersController::class, 'destroy']);

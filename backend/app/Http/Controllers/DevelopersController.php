@@ -40,7 +40,17 @@ class DevelopersController extends Controller
             return response()->json(['message' => 'Dados inválidos, por favor, corrigir e enviar novamente.'], 400);
         }
 
-        DB::table('developers')->insert($request->all());
+        $developer = [
+            'nome'            => $request->input('nome'),
+            'sexo'            => $request->input('sexo'),
+            'idade'           => $request->input('idade'),
+            'data_nascimento' => $request->input('data_nascimento'),
+            'hobby'           => $request->input('hobby'),
+            'created_at'      => date('Y-m-d'),
+            'updated_at'      => date('Y-m-d')
+        ];
+
+        DB::table('developers')->insert($developer);
 
         return response()->json(['message' => 'Desenvolvedor cadastrado com sucesso.'], 201);
     }
@@ -88,8 +98,18 @@ class DevelopersController extends Controller
             return response()->json(['message' => 'Dados inválidos, por favor, corrigir e enviar novamente.'], 400);
         }
 
+        $developer = [
+            'nome'            => $request->input('nome'),
+            'sexo'            => $request->input('sexo'),
+            'idade'           => $request->input('idade'),
+            'data_nascimento' => $request->input('data_nascimento'),
+            'hobby'           => $request->input('hobby'),
+            'created_at'      => date('Y-m-d'),
+            'updated_at'      => date('Y-m-d')
+        ];
+
         // Atualiza o desenvolvedor.
-        if (DB::table('developers')->where('id', $id)->update($request->all())) {
+        if (DB::table('developers')->where('id', $id)->update($developer)) {
             return response()->json(['message' => 'Não foi possível atualizar o desenvolvedor.'], 400);
         }
 
