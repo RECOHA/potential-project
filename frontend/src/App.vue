@@ -1,6 +1,21 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <div>
+      <b-navbar toggleable="lg" type="dark" variant="dark">
+        <b-navbar-nav>
+          <b-navbar-brand tag="h1" class="mb-0">Potential</b-navbar-brand>
+
+          <b-navbar-nav>
+            <b-nav-item to="/home">Início</b-nav-item>
+          </b-navbar-nav>
+
+          <b-nav-item-dropdown text="Cadastro" left>
+            <b-dropdown-item to="/developers">Desenvolvedores</b-dropdown-item>
+          </b-nav-item-dropdown>
+        </b-navbar-nav>
+      </b-navbar>
+    </div>
+
     <router-view/>
   </div>
 </template>
@@ -12,12 +27,5 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
