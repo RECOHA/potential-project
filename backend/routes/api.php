@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DevelopersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/developers', [DevelopersController::class, 'index']);
+Route::post('/developers/store', [DevelopersController::class, 'store']);
+Route::get('/developers/{id}', [DevelopersController::class, 'show']);
+Route::put('/developers', [DevelopersController::class, 'update']);
+Route::delete('/developers/{id}', [DevelopersController::class, 'destroy']);
