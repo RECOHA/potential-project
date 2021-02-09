@@ -20,6 +20,7 @@ read -p "Pressione um botão para continuar..."
 # Subindo o frontend.
 cd ..
 cd frontend
+npm install
 npm run dev
 
 echo "Frontend executando em: http://localhost:8080/"
